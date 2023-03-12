@@ -1,0 +1,1 @@
+-- In questo file è possibile inserire delle istruzioni sql che vengono eseguite in fase di inizializzazione del jar
