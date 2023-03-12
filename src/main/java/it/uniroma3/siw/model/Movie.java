@@ -2,47 +2,64 @@ package it.uniroma3.siw.model;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 
 @Entity
 public class Movie {
 
-	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;
     private Integer year;
     private String urlImage;
-    
-    public Movie() {
-    	super();
-    }
-    
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public Integer getYear() {
-		return year;
-	}
-	public void setYear(Integer year) {
-		this.year = year;
-	}
-	public String getUrlImage() {
-		return urlImage;
-	}
-	public void setUrlImage(String urlImage) {
-		this.urlImage = urlImage;
-	}
-    
-    
-    
 
+    public Movie() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Movie movie))
+            return false;
+        return title.equals(movie.title) && year.equals(movie.year);
+    }
+
+    @Override public int hashCode() {
+        return Objects.hash(title, year);
+    }
 }
