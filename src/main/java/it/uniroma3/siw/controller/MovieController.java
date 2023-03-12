@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MovieController { //Nella classe controller, creo un metodo per ogni richiesta che devo creare
 
-    @Autowired MovieRepository movieRepository; //Crea in maniera automatica un oggetto di tipo MovieRepository
+    @Autowired MovieRepository movieRepository; //Annotazione autowired aggiunge una "dipendenza" alla lasse di reposutory
 
     @GetMapping("/formNewMovie")
     public String formNewMovie(Model model) {
